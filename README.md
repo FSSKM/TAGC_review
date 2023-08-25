@@ -21,7 +21,7 @@ install_github("FSSKM/TAGC_review", ref="main")
 ## Output
 TAGC generates a point estimate and corresponding confidence intervals for the trans-ancestry genetic correlation between trait A of population I and trait B of population II. 
 
-It is assumed that GWAS summary statistics are available for trait A of population I, and individual level observations are available for trait B of population II. Individual level observation of trait A of population II is not needed, and the TAGC uses the PRS of trait A for population II instead of individual level observations.
+It is assumed that GWAS summary statistics are available for trait A of population I, and individual level observations are available for trait B of population II. Individual level observations of trait A of population II is not needed, and the TAGC uses the PRS of trait A for population II instead of individual level observations.
 
 Population II typically is the smaller population, and population I is typically the larger population with higher quality GWAS. 
 
@@ -29,7 +29,7 @@ The TAGC estimate will be a corrected estimate based on the naïve correlation b
 
 
 ## Input
-TAGC requires the following input and outputs an estimate of trans-ancestry genetic correlations.
+TAGC requires the following input and outputs an estimate of trans-ancestry genetic correlations, and resampling-based standard error.
 - LD block matrix moments
     * User can use our pre-computed LD block matrix moments and need to match the GWAS summary statistics with our SNP ID list accordingly, or
     * user can compute the LD block matrix moments of their own bfile using our TAGC LD moment function.
@@ -215,7 +215,7 @@ We provide two detailed examples using real data [here](docs/real_data_example.m
 
 - **Q.** How will the TAGC result change when we have GWAS for the smaller population and individual phenotype data for the larger population? For example, use GWAS summary statistics from a small Asian population and individual observations from a large European population for genetic correlation estimate.
 
-- **A.** TAGC applies to the setup where the GWAS sample size is small and the individual observation sample size is large. In this case, the TAGC estimate remains unbiased, though the variance of the TAGC estimate gets larger due to the small GWAS sample size and noiser summary statistics.
+- **A.** TAGC applies to the setup where the GWAS sample size is small and the individual observation sample size is large. In this case, the TAGC estimate remains unbiased, though the variance of the TAGC estimate gets larger due to the small GWAS sample size and noisier summary statistics.
 
 
 
