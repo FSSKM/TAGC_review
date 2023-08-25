@@ -56,10 +56,10 @@ We provide the following data for Step 1 (matching GWAS summary statistics), and
 - Pre-computed LD matrix moments
     * LD matrix moment for WAGC/TAGC input:
         * HapMap3: [WAGC](TAGC_data/LD_moments/hm3/UKB_eur/WAGC_moment), [TAGC](TAGC_data/LD_moments/hm3/UKB_eur_asian/TAGC_moment)
-        * Unimputed UKB bfile: [WAGC](TAGC_data/LD_moments/unimputed/UKB_eur/WAGC_moment), [TAGC](TAGC_data/LD_moments/unimputed/UKB_eur_asian/TAGC_moment)
+        * UKB unimputed: [WAGC](TAGC_data/LD_moments/unimputed/UKB_eur/WAGC_moment), [TAGC](TAGC_data/LD_moments/unimputed/UKB_eur_asian/TAGC_moment)
     * LD matrix moment for each block (aggregates to the above input using our R function `LD_block_moment_all_WAGC`/`LD_block_moment_all_TAGC`):
         * HapMap3: [WAGC](TAGC_data/LD_moments/hm3/UKB_eur/each_block), [TAGC](TAGC_data/LD_moments/hm3/UKB_eur_asian/each_block)
-        * Unimputed UKB bfile: [WAGC](TAGC_data/LD_moments/unimputed/UKB_eur/each_block), [TAGC](TAGC_data/LD_moments/unimputed/UKB_eur_asian/each_block)
+        * UKB unimputed: [WAGC](TAGC_data/LD_moments/unimputed/UKB_eur/each_block), [TAGC](TAGC_data/LD_moments/unimputed/UKB_eur_asian/each_block)
 
 We also provide the LD matrix used in our simulation analysis in our paper, which is a $10000 \times 10000$ block of the HapMap3 LD of Chromosome 22 of European population and that of Eastern Asian population. 
 - EUR: [dropbox link](https://www.dropbox.com/scl/fi/8him3d4228sz42tamjpwi/LD-EUR-CHR22-hapmap3.csv?rlkey=gunrhrz92hhmhrkkpeh4dc2xv&dl=0)
@@ -69,7 +69,7 @@ We also provide the LD matrix used in our simulation analysis in our paper, whic
 
 
 ## Tutorial
-We will walk through a simulated data example and a real data example, where the former uses a simulated phenotype with known heritability, and the latter uses a real phenotype with unknown heritability.
+We will walk through a simulated data example and a real data example, where the former uses simulated phenotypes with known heritability and genetic correlation, and the latter uses a real phenotype with unknown heritability and genetic correlation.
 
 We first demonstrate the pre-processing steps that are required for both examples.
 
@@ -78,7 +78,7 @@ User can skip this step if computing their own LD block matrix moments. Otherwis
 ```{bash}
 awk 'NR==FNR { ids[$1]=1; next } FNR==1 || $2 in ids' ${TAGC_snp_list} ${input_gwas_path} > ${output_gwas_path}
 ```
-where `${TAGC_snp_list}` is the list of SNPs included in our bfile and used in our LD block matrix moments, available with two versions (see Additional Data section above). `${input_gwas_path}` is the path to user's GWAS summary statistics file, and `${output_gwas_path}` is the desired output path.
+where `${TAGC_snp_list}` is the list of SNPs included in our bfile and used in our LD block matrix moments, available with two versions (see Additional Data section above). `${input_gwas_path}` is the path to the user's GWAS summary statistics file, and `${output_gwas_path}` is the desired output path.
 
 
 ### Step 2: Confounding check and correction using LDSC (optional)
@@ -165,11 +165,11 @@ ${plink_1.9_path} \
 User can also use their own LD block boundary.
 
 
-Step 6 and 7 below depend on whether the user considers population I different from population II. We show detailed steps
+Step 6 and 7 below depend on whether the user considers population I different from population II.  A detailed example for Step 6 is available [here](docs/LD_block_matrix_moment_example.md). For Step 7, see the details at [simulated example](docs/simulated_data_example.md) and [real data example](docs/real_data_example.md).
 
 
 ### Step 6: LD block matrix moment computation (if not using our pre-computed LD block matrix moments)
-If the user has a large bfile of many SNPs (e.g. multiple millions), it is recommended to use slurm to run the LD block matrix moment computation in parallel. For example, if the user used our provided LD block matrix boundary (TAGC_data/LD_boundary/file{1..253}) in Step 5, then the user can again submit 253 jobs as in the example command below:
+If the user has a large bfile of many SNPs (e.g. multiple millions), it is recommended to use slurm to run the LD block matrix moment computation in parallel. For example, if the user used our provided LD block matrix boundary (`TAGC_data/LD_boundary/file{1..253}`) in Step 5, then the user can again submit 253 jobs as in the example command below:
 ```{bash}
 for i in `seq 1 253`
 do
