@@ -78,7 +78,7 @@ User can skip this step if computing their own LD block matrix moments. Otherwis
 ```{bash}
 awk 'NR==FNR { ids[$1]=1; next } FNR==1 || $2 in ids' ${TAGC_snp_list} ${input_gwas_path} > ${output_gwas_path}
 ```
-where `${TAGC_snp_list}` is the list of SNPs included in our bfile and used in our LD block matrix moments, available with two versions: [* [HapMap3](TAGC_data/hm3_snp.id.list) and [Unimputed UKB bfile](TAGC_data/UKB_unimputed_snp.id.list) `${input_gwas_path}` is the path to user's GWAS summary statistics file, and `${output_gwas_path}` is the desired output path.
+where `${TAGC_snp_list}` is the list of SNPs included in our bfile and used in our LD block matrix moments, available with two versions (see Additional Data section above). `${input_gwas_path}` is the path to user's GWAS summary statistics file, and `${output_gwas_path}` is the desired output path.
 
 
 ### Step 2: Confounding check and correction using LDSC (optional)
