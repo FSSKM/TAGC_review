@@ -51,7 +51,7 @@ Both the phenotype file of trait B of population II, the covariates of populatio
 ## Additional Data
 We provide the following data for Step 1 (matching GWAS summary statistics), and Step 7 (TAGC/WAGC estimate):
 - Lists of SNPs that were used in computation of our pre-computed LD matrix moments
-    * HapMap3: `TAGC_data/hm3_snp.id.list`
+    * [HapMap3](TAGC_data/hm3_snp.id.list)
     * Unimputed UKB bfile: `TAGC_data/UKB_unimputed_snp.id.list`
 - Pre-computed LD matrix moments
     * LD matrix moment for WAGC/TAGC input:
