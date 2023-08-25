@@ -34,7 +34,7 @@ TAGC requires the following input and outputs an estimate of trans-ancestry gene
     * User can use our pre-computed LD block matrix moments and need to match the GWAS summary statistics with our SNP ID list accordingly, or
     * user can compute the LD block matrix moments of their own bfile using our TAGC LD moment function.
 - LD block boundaries (if user computes their own LD block matrix moments)
-    * User can use our provided [LD block boundaries](TAGC_data/LD_boundary/file{1..253}), or
+    * User can use our provided [LD block boundaries](TAGC_data/LD_boundary), or
     * user can use their own LD block boundaries.
 - Polygenic risk score (PRS) generated using GWAS summary statistics (GWAS as a marginal estimator of SNP effects) of one trait (PRS of trait A of population II).
 - Heritability estimate of phenotypes
@@ -78,7 +78,7 @@ User can skip this step if computing their own LD block matrix moments. Otherwis
 ```{bash}
 awk 'NR==FNR { ids[$1]=1; next } FNR==1 || $2 in ids' ${TAGC_snp_list} ${input_gwas_path} > ${output_gwas_path}
 ```
-where `${TAGC_snp_list}` is the list of SNPs included in our bfile and used in our LD block matrix moments, available [here](TAGC_data/snp.id.list), `${input_gwas_path}` is the path to user's GWAS summary statistics file, and `${output_gwas_path}` is the desired output path.
+where `${TAGC_snp_list}` is the list of SNPs included in our bfile and used in our LD block matrix moments, available with two version: [HapMap3](TAGC_data/hm3_snp.id.list) and [UKB unimputed](TAGC_data/UKB_unimputed_snp.id.list), `${input_gwas_path}` is the path to user's GWAS summary statistics file, and `${output_gwas_path}` is the desired output path.
 
 
 ### Step 2: Confounding check and correction using LDSC (optional)
@@ -142,7 +142,7 @@ where the summary statistics of the two traits of interest are `{popn1_trait}.su
 We demonstrate Step 5 and 6 in detail using 1000 Genome bfiles [here](docs/LD_block_matrix_moment_example.md).
 
 ### Step 5: LD block generation (if not using our pre-computed LD block matrix moments)
-It is recommended to use slurm to run the LD block generation in parallel. For example, if using our provided LD block matrix boundary (TAGC_code/TAGC_data/LD_boundary/file{1..253}), the user can submit 253 jobs as in the example command below:
+It is recommended to use slurm to run the LD block generation in parallel. For example, if using our provided LD block matrix boundary (`TAGC_data/LD_boundary`), the user can submit 253 jobs as in the example command below:
 
 ```{bash}
 for i in `seq 1 253`
@@ -169,7 +169,7 @@ Step 6 and 7 below depend on whether the user considers population I different f
 
 
 ### Step 6: LD block matrix moment computation (if not using our pre-computed LD block matrix moments)
-If the user has a large bfile of many SNPs (e.g. multiple millions), it is recommended to use slurm to run the LD block matrix moment computation in parallel. For example, if the user used our provided LD block matrix boundary (TAGC_code/TAGC_data/LD_boundary/file{1..253}) in Step 5, then the user can again submit 253 jobs as in the example command below:
+If the user has a large bfile of many SNPs (e.g. multiple millions), it is recommended to use slurm to run the LD block matrix moment computation in parallel. For example, if the user used our provided LD block matrix boundary (TAGC_data/LD_boundary/file{1..253}) in Step 5, then the user can again submit 253 jobs as in the example command below:
 ```{bash}
 for i in `seq 1 253`
 do
