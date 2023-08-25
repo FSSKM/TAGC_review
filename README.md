@@ -157,7 +157,7 @@ where the content of `LD_block_bfile.sh` is
 i=${1}
 ${plink_1.9_path} \
     --bfile ${bfile_path} \
-    --extract TAGC_code/TAGC_data/LD_boundary/file${i} \ # or replace with your own LD boundary file
+    --extract TAGC_data/LD_boundary/file${i} \ # or replace with your own LD boundary file
     --make-bed \
     --out ${LD_block_bfile_output_path}/${LD_block_bfile_output_filename} \
     --range
