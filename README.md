@@ -215,7 +215,7 @@ We provide two detailed examples using simulated data [here](docs/real_data_exam
 
 - **Q.** How will the TAGC result change when we have GWAS for the smaller population and individual phenotype data for the larger population? For example, use GWAS summary statistics from a small Asian population and individual observations from a large European population for genetic correlation estimate.
 
-- **A.** TAGC applies to the setup where the GWAS sample size is small and the individual observation sample size is large. We provide an example [here](docs/small_asian_large_eur_TAGC_example.md).
+- **A.** TAGC applies to the setup where the GWAS sample size is small and the individual observation sample size is large. In this case, the TAGC estimate remains unbiased, though the variance of the TAGC estimate gets larger due to the small GWAS sample size and noiser summary statistics.
 
 
 
