@@ -191,7 +191,7 @@ We provide two detailed examples using simulated data [here](docs/simulated_data
 
 
 ## Real data example
-We provide two detailed examples using simulated data [here](docs/real_data_example.md), which is aligned with the real data analysis in our TAGC paper.
+We provide two detailed examples using real data [here](docs/real_data_example.md), which is aligned with the real data analysis in our TAGC paper.
 
 
 
