@@ -14,7 +14,7 @@ install.packages("DescTools")
 install.packages("psych")
 # install
 library("devtools")
-install_github("TAGC_gitrepo/TAGC_code/TAGC_package")
+install_github("FSSKM/TAGC_review")
 ```
 
 
