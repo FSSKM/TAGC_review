@@ -52,14 +52,14 @@ Both the phenotype file of trait B of population II, the covariates of populatio
 We provide the following data for Step 1 (matching GWAS summary statistics), and Step 7 (TAGC/WAGC estimate):
 - Lists of SNPs that were used in computation of our pre-computed LD matrix moments
     * [HapMap3](TAGC_data/hm3_snp.id.list)
-    * Unimputed UKB bfile: `TAGC_data/UKB_unimputed_snp.id.list`
+    * [Unimputed UKB bfile](TAGC_data/UKB_unimputed_snp.id.list)
 - Pre-computed LD matrix moments
     * LD matrix moment for WAGC/TAGC input:
-        * HapMap3: `TAGC_data/LD_moments/hm3/UKB_eur/WAGC_moment`, `TAGC_data/LD_moments/hm3/UKB_eur_asian/TAGC_moment`
-        * Unimputed UKB bfile: `TAGC_data/LD_moments/unimputed/UKB_eur/WAGC_moment`, `TAGC_data/LD_moments/unimputed/UKB_eur_asian/TAGC_moment`
+        * HapMap3: [WAGC](TAGC_data/LD_moments/hm3/UKB_eur/WAGC_moment), [TAGC](TAGC_data/LD_moments/hm3/UKB_eur_asian/TAGC_moment)
+        * Unimputed UKB bfile: [WAGC](TAGC_data/LD_moments/unimputed/UKB_eur/WAGC_moment), [TAGC](TAGC_data/LD_moments/unimputed/UKB_eur_asian/TAGC_moment)
     * LD matrix moment for each block (aggregates to the above input using our R function `LD_block_moment_all_WAGC`/`LD_block_moment_all_TAGC`):
-        * HapMap3: `TAGC_data/LD_moments/hm3/UKB_eur/each_block`, `TAGC_data/LD_moments/hm3/UKB_eur_asian/each_block`
-        * Unimputed UKB bfile: `TAGC_data/LD_moments/unimputed/UKB_eur/each_block`, `TAGC_data/LD_moments/unimputed/UKB_eur_asian/each_block`
+        * HapMap3: [WAGC](TAGC_data/LD_moments/hm3/UKB_eur/each_block), [TAGC](TAGC_data/LD_moments/hm3/UKB_eur_asian/each_block)
+        * Unimputed UKB bfile: [WAGC](TAGC_data/LD_moments/unimputed/UKB_eur/each_block), [TAGC](TAGC_data/LD_moments/unimputed/UKB_eur_asian/each_block)
 
 We also provide the LD matrix used in our simulation analysis in our paper, which is a $10000 \times 10000$ block of the HapMap3 LD of Chromosome 22 of European population and that of Eastern Asian population. 
 - EUR: [dropbox link](https://www.dropbox.com/scl/fi/8him3d4228sz42tamjpwi/LD-EUR-CHR22-hapmap3.csv?rlkey=gunrhrz92hhmhrkkpeh4dc2xv&dl=0)
