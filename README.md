@@ -29,7 +29,7 @@ The TAGC estimate will be a corrected estimate based on the naïve correlation b
 
 
 ## Input
-TAGC requires the following input and outputs an estimate of trans-ancestry genetic correlations, and resampling-based standard error.
+TAGC requires the following input and outputs an estimate of trans-ancestry genetic correlation, a resampling-based standard error, and a corresponding confidence interval.
 - LD block matrix moments
     * User can use our pre-computed LD block matrix moments and need to match the GWAS summary statistics with our SNP ID list accordingly, or
     * user can compute the LD block matrix moments of their own bfile using our TAGC LD moment function.
