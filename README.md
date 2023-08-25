@@ -21,7 +21,7 @@ install_github("FSSKM/TAGC_review", ref="main")
 ## Output
 TAGC generates a point estimate and corresponding confidence intervals for the trans-ancestry genetic correlation between trait A of population I and trait B of population II. 
 
-It is assumed that GWAS summary statistics are available for trait A of population I, and individual level observations are available for trait B of population II. Population I may have no individual level observations for population II, and the TAGC uses the PRS of trait A for population II instead of individual level observations.
+It is assumed that GWAS summary statistics are available for trait A of population I, and individual level observations are available for trait B of population II. Individual level observation of trait A of population II is not needed, and the TAGC uses the PRS of trait A for population II instead of individual level observations.
 
 Population II typically is the smaller population, and population I is typically the larger population with higher quality GWAS. 
 
