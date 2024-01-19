@@ -210,13 +210,12 @@ We provide two detailed examples using real data [here](docs/real_data_example.m
 
 - **Q.** Does TAGC apply to binary traits?
 
-- **A.** TAGC supports both GLM ($-\log$(odds ratio)) and LM GWAS summary statistics. Regarding the estimation of heritability, when using LDSC, please make sure to use the observed scale h2 estimate and not to use the liability scale h2 estimate. 
+- **A.** Our methods are developed for linear models and should only be applied to continuous traits where the assumption of homoscedasticity is valid. While linear regression is frequently used for binary traits in genetic studies, the presence of covariates, particularly confounders like population structure, can violate the homoscedasticity assumption of linear models. This misspecification of the mean-variance relationship can lead to either inflated or deflated type I error rates. Consequently, we advise using our methods exclusively for continuous traits in practical applications. Expanding these methods to binary traits remains an area for future research.
 
 
 - **Q.** How will the TAGC result change when we have GWAS for the smaller population and individual phenotype data for the larger population? For example, use GWAS summary statistics from a small Asian population and individual observations from a large European population for genetic correlation estimate.
 
 - **A.** TAGC applies to the setup where the GWAS sample size is small and the individual observation sample size is large. In this case, the TAGC estimate remains unbiased, though the variance of the TAGC estimate gets larger due to the small GWAS sample size and noisier summary statistics.
-
 
 
 
