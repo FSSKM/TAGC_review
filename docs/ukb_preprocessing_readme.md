@@ -5,7 +5,7 @@ Here we outline the steps to obtain UKB phenotypes and covariates used in our re
 
 ## Data downloading
 
-Once your data application is approved by the UK Biobank, the data can be downloaded from the https://ams.ukbiobank.ac.uk/ams/. Here is a detailed instruction for downloading various data types: https://biobank.ctsu.ox.ac.uk/~bbdatan/Data_Access_Guide.pdf. The UNIX program ukbconv, which can also be downloaded from this page: https://biobank.ndph.ox.ac.uk/showcase/download.cgi
+Once your data application is approved by the UK Biobank, the data can be downloaded from the https://ams.ukbiobank.ac.uk/ams/. A detailed instruction for downloading various data types is available in the [UK Biobank Data Access Guide](https://biobank.ctsu.ox.ac.uk/~bbdatan/Data_Access_Guide.pdf). The UNIX program `ukbconv` can also be downloaded from this page: https://biobank.ndph.ox.ac.uk/showcase/download.cgi
 
 ```{bash}
 ### preparation
@@ -17,7 +17,7 @@ wget  -nd  biobank.ndph.ox.ac.uk/ukb/ukb/utilx/encoding.dat
 wget  -nd  biobank.ndph.ox.ac.uk/ukb/util/ukbunpack
 ```
 
-Then, the genetic data used in this study can be downloaded following the steps in "Section 3: Download utilities for bulk & genomics data and returns". Similarly, the phenotype and covariate data used in this study can be downloaded following the steps in "Section 2: The main dataset"
+Then, the genetic data used in this study can be downloaded following the steps in "Section 3: Download utilities for bulk & genomics data and returns" of the [UK Biobank Data Access Guide](https://biobank.ctsu.ox.ac.uk/~bbdatan/Data_Access_Guide.pdf). Similarly, the phenotype and covariate data used in this study can be downloaded following the steps in "Section 2: The main dataset" of the UK Biobank Data Access Guide.
 
 
 
